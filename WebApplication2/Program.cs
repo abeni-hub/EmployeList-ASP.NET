@@ -21,7 +21,7 @@ app.Run(async (HttpContext context) =>
         }
         else if (context.Request.Path.StartsWithSegments("/employees"))
         {
-            await context.Response.WriteAsync("Employees List");
+            await context.Response.WriteAsync("Employee List");
         }
     }
     
