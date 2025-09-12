@@ -97,3 +97,8 @@ Edit Employee – Update employee details.
 Delete Employee – Remove employees from the database.
 
 Bootstrap UI – Simple and clean interface.
+
+
+### The Postman Test
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/90ca65d5-2671-4d72-ae47-9d8d87ae9a01" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2a8aaa45-b61a-4a77-9903-08f8d88c4f79" />
