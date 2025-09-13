@@ -65,6 +65,30 @@ app.Run(async (HttpContext context) =>
         }
     }
 
+    else if(context.Request.Method == "DELETE")
+    {
+        if (context.Request.Path.StartsWithSegments("/employees"))
+        {
+            if (context.Request.Query.ContainsKey("id"))
+            {
+                var id = context.Request.Query["id"];
+                if(int.TryParse(id, out int employeeId))
+                {
+                    var result = EmployeeRepository.DeleteEmployee(employeeId);
+
+                    if(result)
+                    {
+                        await context.Response.WriteAsync($"Employee deleted Successfully.");
+                    }
+                    else
+                    {
+                        await context.Response.WriteAsync($"Employee not found!");
+                    }
+                }
+            }
+        }
+    }
+
 });
 
 app.Run();
@@ -103,6 +127,18 @@ static class EmployeeRepository
             }
         }
 
+        return false;
+    }
+
+    public static bool DeleteEmployee(int id)
+    {
+        var employee = employees.FirstOrDefault(x => x.Id == id);
+
+        if (employee is not null)
+        {
+            employees.Remove(employee);
+            return true;
+        }
         return false;
     }
 }
